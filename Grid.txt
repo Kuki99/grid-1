@@ -1,0 +1,47 @@
+display: grid;  
+  
+grid-template-columns: repeat(12, 1fr);
+grid-template-columns: 20px repeat(6, 1fr) 20px;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: 50px 350px 50px;
+grid-column: 1 / 4;
+
+grid-auto-rows: 200px;
+grid-auto-rows: minmax(100px, auto);
+
+grid-column-start: 1;
+grid-column-end: 3;
+grid-row-start: 2;
+grid-row-end: 4;
+
+grid-gap: 5px;
+
+
+grid-template-columns: repeat(auto-fill, 100px); Когда в строке не остается места, то элементы переходят на следующую строку,“я автоматически заполню строку таким количеством колонок, как это возможно с учетом заданной ширины”
+
+grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));  Сейчас браузер уместит в строку столько колонок с минимальной шириной в 100px, сколько он сможет. А если останется ещё место, то оно будет поровну распределено между всеми автозаполненными колонками.
+
+grid-template-columns: repeat(auto-fit, 100px);
+grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); сделает ширину пустых колонок равную нулю
+
+object-fit: cover ; 
+Чтобы изображение поместилось в элемент, мы установим его ширину и высоту, как и у самого элемента, а затем применим object-fit: cover ;. Это заставит изображение покрыть весь контейнер, и браузер обрежет его, если это необходимо.
+
+grid-template-columns: subgrid - подгрид
+
+grid-template-areas:
+        "h h h h h h h h h h h h"
+        "m m c c c c c c c c c c"
+        "f f f f f f f f f f f f";
+
+grid-area: h;
+
+@media screen and (max-width: 640px) {
+    .container {
+        grid-template-areas:
+            "m m m m m m h h h h h h"
+            "c c c c c c c c c c c c"
+            "f f f f f f f f f f f f";
+    }
+}
+
